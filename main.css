@@ -1,0 +1,123 @@
+    body {
+      margin:0;
+      padding:0;
+      font-family: "Helvetica Neue", Helvetica, Arial;
+      font-size: 13px;
+    }
+    
+    .container {
+      background-color: beige;
+    }
+    
+    #nav {
+      height: 35px;
+      background-color: rgb(238, 238, 238);
+      border-bottom: 1px solid rgb(191, 191, 191);
+    }
+    
+    #nav-links {
+      width:250px;
+      margin: 0 auto;
+      
+    }
+    
+    #nav-links-right {
+      float:right;
+      margin-top: 9px;
+      margin-right: 9px;
+      
+    }
+    
+    #nav-links-right a {
+      margin:5px;
+    }
+    
+    #nav-links-right a:first-child {
+      background-color: rgb(250,	236,61)	;
+      padding: 8px;
+    }
+    
+    #nav-links-left{
+      float:left;
+      margin-top: 9px;
+    }
+    
+    #nav-links-left a {
+      margin:8px;
+      
+    }
+    
+    .toggleButton {
+      border-right: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid hsl(0, 0%, 80%);
+      margin:0px;
+      margin-top: 2px;
+      padding: 6px;
+      float: left;
+      background-color: rgb(237,	237,	237);
+      /* background-color: hsl(215, 100%, 96%);  */
+    }
+    
+    #nav-links a:first-child {
+      border-left: 1px solid #ccc;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    
+    #nav-links a:last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    
+    #logo img {
+      height: 25px;
+      padding-left: 5px;
+      padding-top: 5px;
+      float:left;
+    }
+    
+    .panel {
+      float:left;
+      width:50%;
+      border-left: none;
+      
+      height: 900px;
+    }
+    
+    .column p {
+      padding: 12px;
+    }
+    
+    .border {
+      border-right: 1px solid rgb(229,229,229	);
+      height: inherit;
+    }
+    
+    textarea {
+      resize:none;
+      background-color:rgb(247,	247,	247	);
+      border-top: none;
+      border-color:grey;
+      
+    }
+    
+    .textArea-color {
+      background-color: white;
+    }
+    
+    .active {
+      background-color: rgb(237,	243,	255	) ;
+    }
+    
+    .highlightedButton {
+      background-color: #E5E5E5;
+    }
+    
+    iframe {
+      border:none;
+    }
+    
+    .hidden {
+      display:none;
+    }

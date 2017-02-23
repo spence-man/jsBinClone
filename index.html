@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <title>Example</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div id="nav">
+      <div id="logo"><img src="dave.min.svg"></div>
+      <div id="nav-links-left">
+        <a>File</a>
+        <a>Add library</a>
+      </div>
+      <div id="nav-links">
+        <a id="html" class="toggleButton active">HTML</a>
+        <a id="css" class="toggleButton ">CSS</a>
+        <a id="javascript" class="toggleButton ">JavaScript</a>
+        <a id="output" class="toggleButton active">Output</a>
+      </div>
+      <div id="nav-links-right">
+        <a>Login or Register</a>
+        <a>Blog</a>
+        <a>Help</a>
+      </div>
+    </div>
+    <div id="bodyContainer">
+      <textarea id="htmlPanel" class="panel"><p id="paragraph">This is some sample html to edit. Each panel is able to be edited in their respective language and the result is shown in the output panel. Feel free to try it out! This is based on the jsbin website, a live pastebin for HTML, CSS and JavaScript </p></textarea>
+      <textarea id="cssPanel" class="panel hidden"> p { color: green; }</textarea>
+      <textarea id="javascriptPanel" class="panel hidden">document.getElementById("paragraph").innerHTML = "Hello World";</textarea>  
+      <iframe id="outputPanel" class="panel"></iframe>   
+    </div>
+  </div>
+  <script type="text/javascript">
+    function updateOutput() {
+      $("iframe").contents().find("html").html("<html><head><style type='text/css'>" +$("#cssPanel").val() + "</style></head><body>" + $("#htmlPanel").val() + "</body></html>");
+      document.getElementById("outputPanel").contentWindow.eval($("#javascriptPanel").val());
+    }
+    $("textarea").click(function(){
+      $(this).toggleClass("textArea-color");
+    });
+    $(".toggleButton").hover(function(){
+        $(this).addClass("highlightedButton");
+    }, function(){
+        $(this).removeClass("highlightedButton");
+    });
+    $(".toggleButton").click(function(){
+      $(this).toggleClass("active");
+      $(this).removeClass("highlightedButton");
+      var panelId= $(this).attr("id") + "Panel";
+      $("#" +panelId).toggleClass("hidden");
+      var numberOfActivePanels = 4 - $(".hidden").length;
+      $(".panel").width(($(window).width() / numberOfActivePanels) - 10);
+    });
+    $(".panel").width(($(window).width() / 2) - 10);
+    
+    updateOutput();
+    $("textarea").on("change keyup paste", function(){
+      updateOutput();
+    }); 
+  </script> 
+</body>
+</html>
